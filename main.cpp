@@ -5,6 +5,7 @@
 #include<stdlib.h>
 #include"snakeh.h"
 #include"snakef.h"
+//using namespace std;
 const char* ax = "Ì°³ÔÉßV1.0 -----Yanminng ";
 /// <summary>
 /// Èë¿Ú
