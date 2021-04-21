@@ -103,12 +103,7 @@ void cfood() {  //产生食物
         sn = sn->next;
     }
     Pos(food->ix, food->iy);
-   
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 8 | FOREGROUND_INTENSITY);
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 6 | BACKGROUND_INTENSITY);
-    printf("■");
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 8 | FOREGROUND_INTENSITY);
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7 | BACKGROUND_INTENSITY);
+    colourin(8, 8, 6, 7, "■");
 }
 /// <summary>
 /// 开始
@@ -130,7 +125,6 @@ void welcometogame()//开始界面
     printf("选择难度：1.简单  2.困难  3.恶魔\n");
     int nandu;
     Pos(35, 14);
-    //std::cin >> nandu;
     char a = _getche();
     nandu = int(a)-48;
     if (nandu == 1)
@@ -145,8 +139,6 @@ void welcometogame()//开始界面
     {
         sleeptime = 30;
     }
-    //Pos(40, 25);
-    //system("pause");
     system("cls");
 }
 /// <summary>
@@ -417,13 +409,19 @@ void gamecircle()//控制游戏
 /// <summary>
 /// 颜色控制
 /// </summary>
-/// <param name="s"></param>
-/// <param name="color"></param>
-void COLOR_PRINT(const char* s, int color)
-{
-    HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
-    SetConsoleTextAttribute(handle, color);
+/// <param name="x1">修改底色</param>
+/// <param name="x2">原底色</param>
+/// <param name="y1">修改字色</param>
+/// <param name="y2">原字色</param>
+/// <param name="s">修改字符串</param>
+/// <returns></returns>
+bool colourin(int x1, int x2, int y1, int y2, const char* s) {
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), x1 | FOREGROUND_INTENSITY);
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), y1 | BACKGROUND_INTENSITY);
     printf(s);
-    SetConsoleTextAttribute(handle, 8|7);  
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), x2 | FOREGROUND_INTENSITY);
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), y2 | BACKGROUND_INTENSITY);
+    return true;
 }
+
 

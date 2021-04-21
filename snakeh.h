@@ -31,4 +31,4 @@ void pause();                //暂停
 void gamecircle();           //控制
 void snakemove();            //移动
 void cantcrosswall();        //越界判断
-void COLOR_PRINT(const char* s, int color);
+bool colourin(int x1, int x2, int y1, int y2, const char* s);  //颜色

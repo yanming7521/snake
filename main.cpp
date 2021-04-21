@@ -11,7 +11,6 @@ const char* ax = "Ã∞≥‘…ﬂV1.0 -----Yanminng ";
 /// </summary>
 /// <returns></returns>
 int main() {
-	//system("color 87");
 	SetConsoleTitle(ax);
 	gamestart();  
 	gamecircle(); 
